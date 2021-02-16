@@ -1,8 +1,9 @@
 
+
 <%= form_for @recommendation do |f|%>
     <%= f.label :friendship_id, "Choose a friend"%>
     <!-- replace User.first.friender_friend_ships with current_user.friendships (sessions)-->
-    <%= f.collection_select :friendship_id, User.first.friender_friendships, :id, :friendee_name %>
+    <%= f.collection_select :friendship_id, current_user.friender_friendships, :id, :friendee_name %>
     <%= f.label :bookshop_id, "Choose shop"%>
     <%= f.collection_select :bookshop_id, Bookshop.all, :id, :name %>
     <%= f.label :message%>

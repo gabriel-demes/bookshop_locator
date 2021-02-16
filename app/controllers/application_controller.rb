@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     before_action :authorized
 
     def current_user
-        @current_user ||= User.find(id: session[:user_id])
+        @current_user ||= User.find_by(id: session[:user_id])
     end
 
     def is_logged_in?
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    def logout_student
+    def logout_user
         session[:user_id] = nil
     end
 

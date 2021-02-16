@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-gabe = User.create(name: "gabe")
-cade = User.create(name: "cade")
-aaron = User.create(name: "aaron")
+gabe = User.create(name: "gabe", age: 23, username: "gabed", password: "abc123")
+cade = User.create(name: "cade", age: 22, username: "cadet", password: "abc123")
+aaron = User.create(name: "aaron", age: 31, username: "aaronm", password: "abc123")
 
 booksshop1 = Bookshop.create(name: "BS1")
 bookshop2 = Bookshop.create(name: "BS2")

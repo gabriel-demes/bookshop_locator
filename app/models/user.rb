@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
     has_many :friendee_friendships, class_name: "Friendship", foreign_key: "friendee_id"
     has_many :frienders, through: :friendee_friendships, source: :friender, dependent: :destroy
+
+    has_secure_password
 end
