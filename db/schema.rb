@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_014950) do
+ActiveRecord::Schema.define(version: 2021_02_16_031316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,16 @@ ActiveRecord::Schema.define(version: 2021_02_16_014950) do
   create_table "friendships", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "friender_id"
+    t.integer "friendee_id"
   end
 
   create_table "recommendations", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "friendship_id"
+    t.integer "bookshop_id"
+    t.text "message"
   end
 
   create_table "users", force: :cascade do |t|
