@@ -25,5 +25,9 @@ class Friendship < ApplicationRecord
         {friendee_id: friender_id, friender_id: friendee_id}
     end
 
+    def friendee_name
+        friendee.name
+    end
+
 
 end

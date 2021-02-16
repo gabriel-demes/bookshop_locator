@@ -1,2 +1,4 @@
 class FriendshipsController < ApplicationController
+
+
 end
