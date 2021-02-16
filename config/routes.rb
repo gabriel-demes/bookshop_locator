@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :recommendations
+  resources :recommendations, only: [:index, :new, :create]
   resources :friendships
   resources :visits
   resources :bookshops
