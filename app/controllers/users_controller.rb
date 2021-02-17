@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            flash[:error] = ["Incorrect Username or Password"]
+            flash[:errors] = ["Incorrect Username or Password"]
             redirect_to login_path
         end
     end
@@ -34,7 +34,8 @@ class UsersController < ApplicationController
     def create
         @user = User.create(user_params)
         session[:user_id] = @user.id
-        redirect_to user_path(@user)
+        redirect_to user_path(@user.id)
+
         # if @student.valid?
         #     session[:user_id] = @user.id
         #     redirect_to user_path(@user)
@@ -51,9 +52,9 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         if @user.update(user_params)
-            redirect_to user_path(@path)
+            redirect_to user_path(@user)
         else
-            flash[:error] = @user.errors.full_messages
+            flash[:errors] = @user.errors.full_messages
             redirect_to edit_user_path(@user)
         end
     end
