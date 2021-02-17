@@ -1,0 +1,7 @@
+<h1> <%= "#{@bookshop.name}'s Profile Page" %> </h1>
+
+<p>Store Name: <%= @bookshop.name %></p>
+<p>Address: <%= @bookshop.address %>, <%= @bookshop.zipcode %></p>
+<p>Phone Number: <%= @bookshop.phone %></p>
+
+<%= link_to "Update Profile", edit_bookshop_path(@bookshop) %>

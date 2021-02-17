@@ -1,0 +1,13 @@
+<h1> Bookshop Index </h1>
+
+<ol>
+    <% @bookshop.each do |bookshop_instance| %>
+
+        <li>
+            <p> <%= bookshop_instance.name %> </p>
+            <%= link_to bookshop_instance.name, bookshop_path(bookshop_instance) %>
+        </li>
+
+    <% end %>
+
+</ol>

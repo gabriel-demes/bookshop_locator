@@ -1,0 +1,15 @@
+<h1> Register Shop </h1>
+
+<%= form_for @bookshop do |f| %>
+
+    <%= f.label :name "Shop Name" %>
+    <%= f.text_field :name %>
+    <%= f.label :address "Address" %>
+    <%= f.text_field :address %>
+    <%= f.label :zipcode "Zipcode" %>
+    <%= f.number_field :zipcode %>
+    <%= f.label :phone_number "Phone Number" %>
+    <%= f.number_field :phone_number %>
+    <%= f.submit "Submit" %>
+
+<% end %>
