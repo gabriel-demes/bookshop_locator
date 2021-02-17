@@ -8,4 +8,5 @@
 <%if is_logged_in?%>
     <%= link_to 'Recommend to a Friend', new_recommendation_path%>
     <%= link_to "Update Profile", edit_bookshop_path(@bookshop) %>
+    <%= button_to "Favorite Bookshop", %>
 <%end%>
