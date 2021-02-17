@@ -2,7 +2,16 @@ Rails.application.routes.draw do
   resources :recommendations, only: [:index, :new, :create]
   resources :friendships
   resources :visits
-  resources :bookshops
+  
+  # resources :bookshops
+  get '/bookshops', to: 'bookshops#index', as: 'bookshops'
+  get '/bookshops/new', to: 'bookshops#new', as: 'new_bookshop'
+  post '/bookshops', to: 'bookshops#create'
+  get '/bookshops/:id', to: 'bookshops#show', as: 'bookshop'
+  get '/bookshops/:id/edit', to: 'bookshops#edit', as: 'edit_bookshop'
+  get '/bookshops/:id', to: 'users#update'
+  get '/bookshops/:id', to: 'users#destroy'
+
   # user login
   get '/login', to: 'users#login', as: 'login'
   post '/handle_login', to: 'users#handle_login'
