@@ -6,6 +6,7 @@ class BookshopsController < ApplicationController
 
     def show
         @bookshop = Bookshop.find(params[:id])
+        session[:shop_id] = @bookshop.id
     end
 
     def new
