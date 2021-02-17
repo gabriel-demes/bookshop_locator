@@ -4,18 +4,18 @@ class UsersController < ApplicationController
     end
 
     def handle_login
-        @user = User.find(username: params[:username])
-        if @user && @student.authenticate(params[:password])
+        @user = User.find_by(username: params[:username])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            flash[:error] = [Incorrect Username or Password]
+            flash[:error] = ["Incorrect Username or Password"]
             redirect_to login_path
         end
     end
 
     def logout
-        logout_student
+        logout_ueser
         redirect_to users_path
     end
 
@@ -57,6 +57,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :age, :username)
+        params.require(:user).permit(:name, :age, :username, :password)
     end
 end
