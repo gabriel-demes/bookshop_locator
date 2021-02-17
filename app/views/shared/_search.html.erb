@@ -1,5 +1,9 @@
+
+
 <%=form_tag "/bookshops/search" do%>
-    <%=label_tag :search_zip%>
-    <%=number_field_tag :search_zip%>
-    <%=submit_tag ("Search")%>
+
+    <%=text_field_tag :search_zip, nil, placeholder: "Search by Zipcode"%> 
+    <%=submit_tag ("Search"), class: "btn btn-outline-success" %>
 <%end%>
+
+
