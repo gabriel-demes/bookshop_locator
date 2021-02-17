@@ -1,9 +1,27 @@
-<h1> <%= "#{@user.username}'s Profile Page" %> </h1>
+<div class="jumbotron">
+  <h1 class="display-4"><%=@user.name.titleize%></h1>
+  
+  <hr class="my-4">
+  <p class="lead">
+    <% if current_user.id == @user.id%>
+        <%= link_to "Update Profile", edit_user_path(@user), class:"btn btn-secondary"%> 
+    <%end%>
+  </p>
+</div>
 
-<p>Name: <%= @user.name %> </p>
-<p>Age: <%= @user.age %> </p>
 
-<% if current_user.id == @user.id%>
-    <%= link_to "Update Profile", edit_user_path(@user) %>
-<%end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
