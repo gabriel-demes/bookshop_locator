@@ -11,8 +11,8 @@ gabe = User.create(name: "gabe", age: 23, username: "gabed", password: "abc123")
 cade = User.create(name: "cade", age: 22, username: "cadet", password: "abc123")
 aaron = User.create(name: "aaron", age: 31, username: "aaronm", password: "abc123")
 
-booksshop1 = Bookshop.create(name: "BS1")
-bookshop2 = Bookshop.create(name: "BS2")
+#booksshop1 = Bookshop.create(name: "BS1")
+#bookshop2 = Bookshop.create(name: "BS2")
 
 gc = Friendship.create(friender_id: 1, friendee_id:2)
 ga = Friendship.create(friender_id: 1, friendee_id:3)

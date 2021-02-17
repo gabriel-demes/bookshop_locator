@@ -4,12 +4,14 @@ class RecommendationsController < ApplicationController
     end
 
     def new
-        @recommendation = Recommendation.new
+        @recommendation = Recommendation.new(bookshop_id: session[:shop_id])
+        
     end
 
     def create
         @recommendation = Recommendation.create(rec_params)
-        rediect_to recommendations_path()
+        @recommendation.update(bookshop_id: session[:shop_id])
+        redirect_to user_path(current_user)
     end
 
 

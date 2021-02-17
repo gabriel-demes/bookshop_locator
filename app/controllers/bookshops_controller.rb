@@ -1,4 +1,5 @@
 class BookshopsController < ApplicationController
+    skip_before_action :authorized
 
     def index
         @bookshops = Bookshop.all
@@ -36,9 +37,19 @@ class BookshopsController < ApplicationController
         redirect_to bookshops_path
     end
 
+    def search
+        #@display = YelpService.display(params[:search_zip])
+        redirect_to display_search_path(params[:search_zip])
+    end
+
+    def display
+        @display = YelpService.display(params[:search_zip])
+    end
+
+
     private
 
     def bookshop_params
-        params.require(:bookshop).permit(:name, :address, :zipcode, :phone_number)
+        params.require(:bookshop).permit(:name, :address, :zipcode, :phone_number, :search_zip)
     end
 end

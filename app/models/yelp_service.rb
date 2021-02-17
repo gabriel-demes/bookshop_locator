@@ -1,5 +1,5 @@
 class YelpService 
-    attr_accessor :client
+    attr_accessor :client, :my_businesses
 
     DEFAULT_TERM = "book store"
     SEARCH_LIMIT = 15
@@ -11,8 +11,38 @@ class YelpService
     end
 
     def find_shops(zip_code)
-        @client.search(zip_code, {term: DEFAULT_TERM, limit: SEARCH_LIMIT})
+        @my_businesses = @client.search(zip_code, {term: DEFAULT_TERM, limit: SEARCH_LIMIT})
         
+    end
+
+    def self.display(zip_code)
+        display = self.new
+        display.find_shops(zip_code)
+        display.business_info
+    end
+
+    def display_nicely
+        businesses.each do |business|
+            puts business.name
+            puts business.rating
+        end
+    end
+
+    def business_info
+        array = @my_businesses.businesses.map do |business|
+            {
+                
+                
+                name: business.name, 
+                address: business.location.display_address.join(" "),
+                zipcode: business.location.zip_code.to_i,
+                phone_number: business.display_phone,
+                image: business.image_url,
+                rating: business.rating
+                
+            }
+        end
+        array
     end
 
 

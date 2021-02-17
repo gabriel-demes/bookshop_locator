@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/bookshops/:id/edit', to: 'bookshops#edit', as: 'edit_bookshop'
   get '/bookshops/:id', to: 'users#update'
   get '/bookshops/:id', to: 'users#destroy'
+  post '/bookshops/search', to: 'bookshops#search'
+  get '/bookshops/search/:search_zip', to: 'bookshops#display', as: 'display_search'
 
   # user login
   get '/login', to: 'users#login', as: 'login'

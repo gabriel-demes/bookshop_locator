@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    skip_before_action :authorized, only: [:login, :handle_login, :new, :create]
     def login 
     end
 
