@@ -27,5 +27,8 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   get '/users/:id', to: 'users#update'
   get '/users/:id', to: 'users#destroy'
+
+  patch '/visits/:id/favorite', to: 'visits#favorite'
+  patch '/visits/:id/unfavorite', to: 'visits#unfavorite'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -4,6 +4,6 @@
 <p>Age: <%= @user.age %> </p>
 
 <% if current_user.id == @user.id%>
-    <%= link_to "Update Profile", edit_user_path(@user) %> %>
+    <%= link_to "Update Profile", edit_user_path(@user) %>
 <%end%>
 

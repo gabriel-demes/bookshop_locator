@@ -32,7 +32,16 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(params[:user])
+        @user = User.create(user_params)
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+        # if @student.valid?
+        #     session[:user_id] = @user.id
+        #     redirect_to user_path(@user)
+        # else
+        #     flash[:error] = @user.errors.full_messages
+        #     redirect_to new_user_path
+        # end
     end
 
     def edit
@@ -44,6 +53,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             redirect_to user_path(@path)
         else
+            flash[:error] = @user.errors.full_messages
             redirect_to edit_user_path(@user)
         end
     end
