@@ -1,0 +1,11 @@
+<h1>Log A Recent Bookshop Visit</h1>
+
+<%= form_for @visit do |f| %>
+    <%= f.label :date %>
+    <%= f.number_field :date %>
+    <%= f.label :book_shop_id %>
+    <%= f.collection_select :book_shop_id, @bookshops, :id, :name %>
+    <%= f.submit %>
+<% end %>
+
+<%= button_to "Favorite Bookshop" %> (add logic for favoriting here)

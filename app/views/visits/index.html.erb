@@ -1,0 +1,12 @@
+<h1> <%= "All Bookshops Visited By #{@user.name}" %> </h1>
+
+<ol>
+
+    <% @visits.each do |visit_instance| %>
+        <li>
+            <p> <%= visit_instance.date %>
+            <%= link_to visit.bookstore.name, bookstore_path(visit_instance) %>
+        </li>
+        
+    <% end %>
+</ol>
