@@ -15,4 +15,24 @@ class User < ApplicationRecord
     def visited?(bookshop)
         self.visits.find_by(bookshop_id: bookshop.id, user_id: self.id)
     end
+
+    def incoming_recs
+        array = []
+        self.friendee_friendships.each do |friendship|
+            friendship.recommendations.each do |recommendation|
+                array << [friendship.friender, Bookshop.find(recommendation.bookshop_id)]
+            end
+        end
+        array
+    end
+
+    def outgoing_recs
+        array = []
+        self.friender_friendships.each do |friendship|
+            friendship.recommendations.each do |recommendation|
+                array << [friendship.friendee, Bookshop.find(recommendation.bookshop_id)]
+            end
+        end
+        array
+    end
 end

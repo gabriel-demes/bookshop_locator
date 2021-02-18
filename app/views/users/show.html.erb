@@ -4,7 +4,11 @@
   <hr class="my-4">
   <p class="lead">
     <% if current_user.id == @user.id%>
-        <%= link_to "Update Profile", edit_user_path(@user), class:"btn btn-secondary"%> 
+        <%= link_to "Update Profile", edit_user_path(@user), class:"btn btn-secondary"%>
+    <%elsif current_user.friendees.include?(@user)%>
+        <%= link_to "Remove Friend", "/friendships/#{current_user.friender_friendships.find_by(friendee_id:@user.id).id}", method:"delete", class:"btn btn-secondary"%>
+    <%else%> 
+        <%= link_to "Add Friend", '/friendships/', method:"post", class:"btn btn-secondary"%> 
     <%end%>
   </p>
 </div>
