@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized, only: [:login, :handle_login, :new, :create]
+    skip_before_action :authorized, only: [:login, :handle_login, :new, :create, :home]
     def login 
     end
 
@@ -72,9 +72,25 @@ class UsersController < ApplicationController
     def incomingrecs
     end
 
+    def search
+        
+        if params[:search_display] != ""
+            redirect_to search_display_path(current_user,params[:search_display])
+        else
+            redirect_to users_path
+        end
+    end
+
+    def search_display
+        @term = params[:search_display]
+    end
+
+    def home
+    end
+
     private
 
     def user_params
-        params.require(:user).permit(:name, :age, :username, :password)
+        params.require(:user).permit(:name, :age, :username, :password, :seach_display)
     end
 end

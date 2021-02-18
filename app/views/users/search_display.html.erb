@@ -1,0 +1,12 @@
+<% if @term%>
+    <ol>
+        <% User.find_users(@term).each do |user|%>
+            <li>
+                <%= link_to user.name, user_path(user)%>
+            </li>
+        <%end%>
+    </ol>
+<%else%>
+    <%=render :index%>
+<%end%>
+    
