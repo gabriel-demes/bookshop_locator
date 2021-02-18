@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/bookshops', to: 'bookshops#create'
   get '/bookshops/:id', to: 'bookshops#show', as: 'bookshop'
   get '/bookshops/:id/edit', to: 'bookshops#edit', as: 'edit_bookshop'
-  get '/bookshops/:id', to: 'users#update'
+  patch '/bookshops/:id', to: 'users#update'
   get '/bookshops/:id', to: 'users#destroy'
   post '/bookshops/search', to: 'bookshops#search'
   get '/bookshops/search/:search_zip', to: 'bookshops#display', as: 'display_search'
