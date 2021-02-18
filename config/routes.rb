@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :friendships
   resources :visits
   
+  root 'users#home'
   # resources :bookshops
   get '/bookshops', to: 'bookshops#index', as: 'bookshops'
   get '/bookshops/new', to: 'bookshops#new', as: 'new_bookshop'
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
   get '/users/:id/myfriends', to: 'users#myfriends', as: 'myfriends'
   get '/users/:id/incoming_recs', to: 'users#incoming_recs', as: 'incoming_recs'
   get '/users/:id/outgoing_recs', to: 'users#outgoing_recs', as: 'outgoing_recs'
+  post '/users/search', to: 'users#search'
+  get '/users/:id/:search_display', to: "users#search_display", as:'search_display'
 
 
   patch '/visits/:id/favorite', to: 'visits#favorite'

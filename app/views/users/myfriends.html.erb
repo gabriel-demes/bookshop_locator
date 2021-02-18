@@ -1,3 +1,7 @@
+<%= form_tag :users_search do%>
+    <%= text_field_tag :search_display, nil, placeholder: "Search for User"%>
+    <%= submit_tag "search"%>
+<%end%>
 
 <ol>
     <%current_user.friendees.each do |friend|%>

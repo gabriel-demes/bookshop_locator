@@ -35,4 +35,14 @@ class User < ApplicationRecord
         end
         array
     end
+
+    def self.find_users(term)
+        array = []
+        self.all.each do |user|
+            if user.name.match(/^#{Regexp.quote(term)}/)
+                array << user
+            end
+        end
+        array
+    end
 end
