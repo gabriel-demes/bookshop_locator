@@ -15,6 +15,14 @@
 
 <p> Name: <%= @user.name %></p>
 
+<h2> Favorited Bookshops </h2>
+<ul>
+    <% @user.visits.each do |visit_instance| %>
+      <% if visit_instance.favorite %>
+        <%= link_to visit_instance.bookshop.name, bookshop_path(visit_instance.bookshop) %>
+      <% end %>
+    <% end %>
+  </ul>
 
 
 <%= link_to "Visited Bookshops", visits_path(@user) %>
