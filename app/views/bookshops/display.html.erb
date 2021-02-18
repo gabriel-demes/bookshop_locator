@@ -3,7 +3,7 @@
     
         <li>
             <%= link_to business_hash[:name], bookshop_path(Bookshop.where(business_hash).first_or_create)%><br>
-            <img src=<%=business_hash[:image]%> width="100" height="100"><br>
+            <img src=<%=business_hash[:image]%>>
             Rating - <%=business_hash[:rating]%>
         </li>
     <%end%>

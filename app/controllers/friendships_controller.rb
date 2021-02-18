@@ -1,6 +1,7 @@
 class FriendshipsController < ApplicationController
 
     def index
+        @friendships = Friendship.paginate(page: params[:page], per_page: 10)
     end
 
     def new

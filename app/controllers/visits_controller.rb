@@ -1,7 +1,8 @@
 class VisitsController < ApplicationController
 
     def index
-        @visits = current_user.visits
+        @visits = current_user.visits.paginate(page: params[:page], per_page: 10)
+        
     end
     
     def new
