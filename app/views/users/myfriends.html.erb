@@ -1,0 +1,9 @@
+
+<ol>
+    <%current_user.friendees.each do |friend|%>
+        <li>
+            <%=link_to friend.name, user_path(friend)%>
+        </li>
+    <%end%>
+
+</ol>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     end
 
     def logout
-        logout_ueser
+        logout_user
         redirect_to users_path
     end
 
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        session[:friendee_id]= @user.id
     end
 
     def new
@@ -63,6 +64,12 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.destroy
         redirect_to users_path
+    end
+
+    def myfriends
+    end
+
+    def incomingrecs
     end
 
     private

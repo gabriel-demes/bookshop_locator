@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   get '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   patch '/users/:id', to: 'users#update'
   get '/users/:id', to: 'users#destroy'
+  get '/users/:id/myfriends', to: 'users#myfriends', as: 'myfriends'
+  get '/users/:id/incoming_recs', to: 'users#incoming_recs', as: 'incoming_recs'
+  get '/users/:id/outgoing_recs', to: 'users#outgoing_recs', as: 'outgoing_recs'
+
 
   patch '/visits/:id/favorite', to: 'visits#favorite'
   patch '/visits/:id/unfavorite', to: 'visits#unfavorite'

@@ -1,6 +1,7 @@
 class Friendship < ApplicationRecord
     belongs_to :friender, class_name: "User", foreign_key: "friender_id"
     belongs_to :friendee, class_name: "User", foreign_key: "friendee_id"
+    has_many :recommendations
 
     after_create :create_inverse, unless: :has_inverse?
     after_destroy :destroy_inverse, if: :has_inverse?

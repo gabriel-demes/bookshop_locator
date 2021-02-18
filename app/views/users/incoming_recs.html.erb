@@ -1,0 +1,8 @@
+<ol>
+    <%current_user.incoming_recs.each do |recommendation|%>
+        <li>
+            <%=link_to recommendation[0].name, user_path(recommendation[0])%> recommended <%= link_to recommendation[1].name, bookshop_path(recommendation[1])%>
+        </li>
+    <%end%>
+
+</ol>
