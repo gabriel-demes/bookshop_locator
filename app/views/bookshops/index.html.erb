@@ -1,13 +1,19 @@
 <h1> Bookshop Index </h1>
 
-<ol>
-    <% @bookshops.each do |bookshop_instance| %>
+<%= render "/shared/search" %>
+    <ol class = "list">
+    <% @bookshops.each do |bookshop| %>
 
         <li>
-            <%= link_to bookshop_instance.name, bookshop_path(bookshop_instance) %>
+            <h4 class= "shop_names"> <%= link_to bookshop.name, bookshop_path(bookshop) %> </h4>
+            <img src=<%=bookshop.image%> > 
+            <img src=<%=asset_path("#{bookshop.rating_pic}.png")%>>
+        
         </li>
 
     <% end %>
 
 </ol>
-<%= render "/shared/search" %>
+
+
+<h4><%= will_paginate @posts%></h4> 

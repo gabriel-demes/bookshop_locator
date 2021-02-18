@@ -2,7 +2,7 @@ class BookshopsController < ApplicationController
     skip_before_action :authorized
 
     def index
-        @bookshops = Bookshop.all
+        @bookshops = Bookshop.paginate(page: params[:page], per_page: 10)
     end
 
     def show
