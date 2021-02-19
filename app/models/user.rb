@@ -20,7 +20,7 @@ class User < ApplicationRecord
         array = []
         self.friendee_friendships.each do |friendship|
             friendship.recommendations.each do |recommendation|
-                array << [friendship.friender, Bookshop.find(recommendation.bookshop_id)]
+                array << [friendship.friender, Bookshop.find(recommendation.bookshop_id), recommendation.message]
             end
         end
         array
