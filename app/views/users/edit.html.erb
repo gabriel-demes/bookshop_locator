@@ -2,13 +2,11 @@
 
 <%= render "/shared/errors" %>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html:{class:"form-group"} do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"form-control" %>
     <%= f.label :age %>
-    <%= f.text_field :age %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <%= f.submit "Update Profile" %>
+    <%= f.text_field :age, class:"form-control" %>
+    <%= f.submit "Update Profile",class:"btn btn-secondary" %>
 
 <% end %>

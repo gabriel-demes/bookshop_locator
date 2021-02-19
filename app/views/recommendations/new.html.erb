@@ -1,10 +1,8 @@
 
 
-<%= form_for @recommendation do |f|%>
-    <%= f.label :friendship_id, "Choose a friend"%>
-    <!-- replace User.first.friender_friend_ships with current_user.friendships (sessions)-->
+<%= form_for @recommendation, html:{class:"form-group"} do |f|%>
+    <p><%= f.label :friendship_id, "Choose a friend to recommend #{@bookshop} to"%></p>
     <%= f.collection_select :friendship_id, current_user.friender_friendships, :id, :friendee_name %>
-    <%= f.label :bookshop_id, "Choose shop"%>
-    <%= f.text_area :message, size: "70x5"%>
-    <%= f.submit%>
+    <%= f.text_area :message,placeholder:"Write message here", size: "70x5", class:"form-control"%>
+    <%= f.submit "submit", class:"btn btn-secondary"%>
 <%end%>

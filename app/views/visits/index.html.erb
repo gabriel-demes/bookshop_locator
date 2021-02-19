@@ -5,7 +5,7 @@
     <% @visits.each do |visit_instance| %>
         <li>
             <p> <%= visit_instance.date %>
-            <%= link_to visit_instance.bookshop.name, bookshop_path(visit_instance) %>
+            <%= link_to visit_instance.bookshop.name, bookshop_path(visit_instance.bookshop) %>
         </li>
         
     <% end %>

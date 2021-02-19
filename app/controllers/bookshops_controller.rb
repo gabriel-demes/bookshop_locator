@@ -43,7 +43,12 @@ class BookshopsController < ApplicationController
     end
 
     def display
-        @display = YelpService.display(params[:search_zip])
+        if params[:search_zip].match(/^\d{5}$/)
+            @display = YelpService.display(params[:search_zip])
+        else
+            redirect_back fallback_location: bookshops_path
+        end
+
     end
 
 

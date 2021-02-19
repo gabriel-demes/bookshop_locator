@@ -1,7 +1,22 @@
 <div class="jumbotron">
-  <h1 class="display-4"><%=@user.username.titleize%></h1>
+  <h2><%=@user.name.titleize%></h2>
   
   <hr class="my-4">
+  <% if current_user.id == @user.id%>
+    <p>Username: <%=@user.username%></p>
+  <%end%>
+  <p>Age: <%=@user.age%>
+  <p>Bookshops Visited: <%=@user.visits.length%>
+  <h3> Favorited Bookshops </h3>
+  <ul class="container-1">
+      <% @user.visits.each do |visit_instance| %>
+        <% if visit_instance.favorite %>
+          <li class="container-2"><p id="favlink"><%= link_to visit_instance.bookshop.name, bookshop_path(visit_instance.bookshop) %></p></li>
+        <% end %>
+        
+      <% end %>
+  </ul>
+  
   <p class="lead">
     <% if current_user.id == @user.id%>
         <%= link_to "Update Profile", edit_user_path(@user), class:"btn btn-secondary"%>
@@ -10,22 +25,16 @@
     <%else%> 
         <%= link_to "Add Friend", '/friendships/', method:"post", class:"btn btn-secondary"%> 
     <%end%>
+    <%= link_to "Visited Bookshops", visits_path(@user), class:"btn btn-secondary" %>
   </p>
 </div>
 
-<p> Name: <%= @user.name %></p>
-
-<h2> Favorited Bookshops </h2>
-<ul>
-    <% @user.visits.each do |visit_instance| %>
-      <% if visit_instance.favorite %>
-        <%= link_to visit_instance.bookshop.name, bookshop_path(visit_instance.bookshop) %>
-      <% end %>
-    <% end %>
-  </ul>
 
 
-<%= link_to "Visited Bookshops", visits_path(@user) %>
+
+
+
+
 
 
 

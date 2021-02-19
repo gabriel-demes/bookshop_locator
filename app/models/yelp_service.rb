@@ -38,7 +38,8 @@ class YelpService
                 zipcode: business.location.zip_code.to_i,
                 phone_number: business.display_phone,
                 image: business.image_url,
-                rating: business.rating
+                rating: business.rating,
+                img_rating: "r#{business.rating.to_s[0]}_#{business.rating.to_s[2]}.png"
                 
             }
         end

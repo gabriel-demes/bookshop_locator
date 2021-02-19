@@ -5,6 +5,7 @@ class RecommendationsController < ApplicationController
     end
 
     def new
+        @bookshop = Bookshop.find(session[:shop_id]).name
         @recommendation = Recommendation.new(bookshop_id: session[:shop_id])
         
     end

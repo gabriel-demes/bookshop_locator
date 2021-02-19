@@ -4,16 +4,21 @@
 <p>Address: <%= @bookshop.address %>, <%= @bookshop.zipcode %></p>
 <p>Phone Number: <%= @bookshop.phone_number %></p>
 
+<img src=<%=@bookshop.image%>><br><br>
+<img src=<%=asset_path(@bookshop.img_rating)%>>
+
 
 <%if is_logged_in?%>
-    <%= link_to 'Recommend to a Friend', new_recommendation_path%>
     <% if visit = current_user.visited?(@bookshop) %>
         <% if visit.favorite %>
-            <%= button_to 'Unfavorite', "/visits/#{visit.id}/unfavorite", method: "patch" %>
+            <div class='shoshowbutt'><%= button_to 'Unfavorite', "/visits/#{visit.id}/unfavorite", method: "patch", class:"btn btn-secondary" %></div>
+            <div class='shoshowbutt'><%= link_to 'Recommend to a Friend', new_recommendation_path, class:"btn btn-secondary"%></div>
         <% else %>
-            <%= button_to 'Favorite', "/visits/#{visit.id}/favorite", method: "patch" %>
+            <div class='shoshowbutt'><%= button_to 'Favorite', "/visits/#{visit.id}/favorite", method: "patch", class:"btn btn-secondary" %></div>
+            <div class='shoshowbutt'><%= link_to 'Recommend to a Friend', new_recommendation_path, class:"btn btn-secondary"%></div>
         <% end %>
     <% else %>
-        <%= button_to 'Visited', "/visits", method: "post" %>
+        <div class='shoshowbutt'><%= button_to 'Visited', "/visits", method: "post", class:"btn btn-secondary" %></div>
+        <div class='shoshowbutt'><%= link_to 'Recommend to a Friend', new_recommendation_path, class:"btn btn-secondary"%></div>
     <% end %>
 <%end%>

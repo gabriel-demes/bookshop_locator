@@ -30,7 +30,7 @@ class User < ApplicationRecord
         array = []
         self.friender_friendships.each do |friendship|
             friendship.recommendations.each do |recommendation|
-                array << [friendship.friendee, Bookshop.find(recommendation.bookshop_id)]
+                array << [friendship.friendee, Bookshop.find(recommendation.bookshop_id), recommendation.message]
             end
         end
         array
@@ -39,7 +39,7 @@ class User < ApplicationRecord
     def self.find_users(term)
         array = []
         self.all.each do |user|
-            if user.name.match(/^#{Regexp.quote(term)}/)
+            if user.name.match(/^#{Regexp.quote(term)}/i)
                 array << user
             end
         end

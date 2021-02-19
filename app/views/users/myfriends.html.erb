@@ -1,12 +1,13 @@
-<%= form_tag :users_search do%>
+<div class="searchdiv"><%= form_tag :users_search do%>
     <%= text_field_tag :search_display, nil, placeholder: "Search for User"%>
-    <%= submit_tag "search"%>
+    <%= submit_tag "search", class: "btn btn-outline-success"%>
 <%end%>
+</div>
 
-<ol>
+<ol class="container-1">
     <%current_user.friendees.each do |friend|%>
-        <li>
-            <%=link_to friend.name, user_path(friend)%>
+        <li class="container-2">
+            <p><%=link_to friend.name, user_path(friend)%></p>
         </li>
     <%end%>
 

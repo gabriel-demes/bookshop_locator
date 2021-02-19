@@ -14,19 +14,68 @@
  *= require_self
  */
 
-
-.list {
+ .container-1 {
     display: flex;
     flex-direction: column;
+    flex-wrap:wrap;
+    align-items:stretch;
+    padding-bottom: 2em;
+ }
+
+.container-1 > li{
+    background-color: #b9b6b6;
+    border: 2px solid rgb(30, 117, 52);
+    width: auto;
+    margin: 10px;
+}
+    
+.container-2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    align-items:stretch;
 }
 
-.list > li {
-    align-items: stretch;
-    display: block
+
+
+.box{
+    border:1px rgb(245, 6, 6) solid;
+
 }
 
 img {
-    max-width: 10rem;
-    display: block;
-    width: auto;
+    max-width: 15rem;
+    max-height: 15rem;
+    
+}
+
+.searchdiv{
+    padding-left: 2.6em;
+}
+.pagnation{
+    padding-left: 1.9em;
+    font-size:x-large;
+}
+
+h1{
+    color: rgb(30, 117, 52);
+}
+h2{
+    color: rgb(30, 117, 52);
+}
+h3{
+    color: rgb(30, 117, 52);
+}
+
+p{
+    font-size: x-large;
+    color: rgb(30, 117, 52);
+
+}
+#favlink{
+    font-size: large;
+}
+
+.shoshowbutt{
+    margin-top: 1em;
 }

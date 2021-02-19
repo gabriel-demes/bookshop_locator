@@ -1,15 +1,16 @@
 <h1> Register User </h1>
+<%= render "/shared/errors" %>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html:{class:"form-group"} do |f| %>
 
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class:"form-control" %>
     <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.text_field :age, class:"form-control" %>
     <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, class:"form-control" %>
     <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Submit" %>
+    <%= f.password_field :password, class:"form-control" %>
+    <%= f.submit "Submit",class:"btn btn-secondary" %>
 
 <% end %>

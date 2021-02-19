@@ -1,14 +1,16 @@
-<h1> Bookshop Index </h1>
+<h1> Browse Bookshops </h1>
 
-<%= render "/shared/search" %>
-    <ol class = "list">
+<div class="searchdiv"><%= render "/shared/search" %></div>
+<div class="pagnation" ><%= will_paginate @bookshops%></div>
+<ol class="container-1" >
     <% @bookshops.each do |bookshop| %>
 
-        <li>
+        <li class="container-2">
+            
             <h4 class= "shop_names"> <%= link_to bookshop.name, bookshop_path(bookshop) %> </h4>
             <img src=<%=bookshop.image%> > 
-            <img src=<%=asset_path("#{bookshop.rating_pic}.png")%>>
-        
+            <img class="rating"src=<%=asset_path("#{bookshop.rating_pic}.png")%>>
+          
         </li>
 
     <% end %>
@@ -16,4 +18,4 @@
 </ol>
 
 
-<h4><%= will_paginate @posts%></h4> 
+<div class="pagnation"><%= will_paginate @posts%></div>
