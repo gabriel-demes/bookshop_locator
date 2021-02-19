@@ -79,3 +79,8 @@ p{
 .shoshowbutt{
     margin-top: 1em;
 }
+
+.event{
+    font-size: medium;
+    color: rgb(30, 117, 52)
+}

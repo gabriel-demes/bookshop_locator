@@ -25,16 +25,26 @@
     <%else%> 
         <%= link_to "Add Friend", '/friendships/', method:"post", class:"btn btn-secondary"%> 
     <%end%>
-    <%= link_to "Visited Bookshops", visits_path(@user), class:"btn btn-secondary" %>
+    <%if current_user.visits.length > 0%>
+      <%= link_to "Visited Bookshops", visits_path(@user), class:"btn btn-secondary" %>
+    <%end%>
   </p>
 </div>
 
 
 
 
+<% if current_user.id == @user.id%>
+  <%= month_calendar events: @events do |date, events| %>
+    <%= date %>
 
-
-
+    <% events.each do |event| %>
+      <div>
+        <p class= "event"> <%= link_to event.name, event_path(event)%></p>
+      </div>
+    <% end %>
+  <% end %>
+<%end%>
 
 
 

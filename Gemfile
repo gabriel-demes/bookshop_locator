@@ -62,3 +62,4 @@ gem 'yelp-fusion'
 gem 'figaro'
 gem 'bcrypt'
 gem 'will_paginate'
+gem "simple_calendar", "~> 2.0"

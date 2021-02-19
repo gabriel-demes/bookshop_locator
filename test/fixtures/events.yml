@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start_time: 2021-02-19 09:40:54
+  user: one
+  bookshop: one
+
+two:
+  name: MyString
+  start_time: 2021-02-19 09:40:54
+  user: two
+  bookshop: two

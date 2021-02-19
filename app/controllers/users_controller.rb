@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @events= Event.all.where(user: current_user)
         session[:friendee_id]= @user.id
     end
 
